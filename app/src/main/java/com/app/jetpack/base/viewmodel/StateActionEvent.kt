@@ -1,4 +1,4 @@
-package com.fmt.github.base.viewmodel
+package com.app.jetpack.base.viewmodel
 
 //定义网络请求状态(密封类扩展性更好)
 sealed class StateActionEvent

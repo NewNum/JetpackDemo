@@ -1,11 +1,14 @@
 package com.app.jetpack.base.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.Observer
-import com.fmt.github.base.viewmodel.BaseViewModel
-import com.fmt.github.base.viewmodel.ErrorState
-import com.fmt.github.base.viewmodel.LoadState
-import com.fmt.github.base.viewmodel.SuccessState
+import com.app.jetpack.TAG
+import com.app.jetpack.base.viewmodel.BaseViewModel
+import com.app.jetpack.base.viewmodel.ErrorState
+import com.app.jetpack.base.viewmodel.LoadState
+import com.app.jetpack.base.viewmodel.SuccessState
+import com.app.jetpack.utils.longToast
 import com.app.jetpack.utils.toast
 
 abstract class BaseViewModelFragment : BaseFragment() {
@@ -28,7 +31,8 @@ abstract class BaseViewModelFragment : BaseFragment() {
                     is ErrorState -> {
                         dismissLoading()
                         stateActionState.message?.apply {
-                            toast(this)
+                            Log.d(TAG, "initViewModelAction: $this")
+                            longToast(this)
                             handleError()
                         }
                     }

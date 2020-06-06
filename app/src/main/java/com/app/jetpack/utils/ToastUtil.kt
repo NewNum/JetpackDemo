@@ -46,5 +46,5 @@ fun longToast(@StringRes res: Int) {
 }
 
 private fun toastCreate(): Toast {
-    return Toast(AppContext)
+    return Toast.makeText(AppContext,"",Toast.LENGTH_SHORT)
 }

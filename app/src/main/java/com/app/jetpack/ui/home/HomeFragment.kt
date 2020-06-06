@@ -2,6 +2,7 @@ package com.app.jetpack.ui.home
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.jetpack.R
@@ -12,13 +13,13 @@ import org.koin.android.ext.android.inject
 
 class HomeFragment : BaseDataBindingViewModelFragment<FragmentHomeBinding>() {
 
-    override val viewModel: HomeArticleViewModel by inject()
+    override val viewModel: HomeArticleViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         db.rvHome.layoutManager = LinearLayoutManager(requireContext())
         db.rvHome.adapter = HomeArticleAdapter()
-        viewModel.getArticle().observe(viewLifecycleOwner, Observer {
+        viewModel.pagedList.observe(viewLifecycleOwner, Observer {
             val adapter = db.rvHome.adapter
             if (adapter is HomeArticleAdapter) {
                 adapter.submitList(it)

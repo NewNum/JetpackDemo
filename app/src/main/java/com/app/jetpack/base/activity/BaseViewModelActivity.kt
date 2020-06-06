@@ -1,10 +1,12 @@
 package com.app.jetpack.base.activity
 
+import android.util.Log
 import androidx.lifecycle.Observer
-import com.fmt.github.base.viewmodel.BaseViewModel
-import com.fmt.github.base.viewmodel.ErrorState
-import com.fmt.github.base.viewmodel.LoadState
-import com.fmt.github.base.viewmodel.SuccessState
+import com.app.jetpack.base.viewmodel.BaseViewModel
+import com.app.jetpack.base.viewmodel.ErrorState
+import com.app.jetpack.base.viewmodel.LoadState
+import com.app.jetpack.base.viewmodel.SuccessState
+import com.app.jetpack.utils.longToast
 import com.app.jetpack.utils.toast
 
 abstract class BaseViewModelActivity : BaseActivity() {
@@ -20,7 +22,8 @@ abstract class BaseViewModelActivity : BaseActivity() {
                     is ErrorState -> {
                         dismissLoading()
                         stateActionState.message?.apply {
-                            toast(this)
+                            Log.d(com.app.jetpack.TAG, "initViewModelAction: $this")
+                            longToast(this)
                             handleError()
                         }
                     }

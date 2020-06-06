@@ -1,4 +1,4 @@
-package com.fmt.github.base.viewmodel
+package com.app.jetpack.base.viewmodel
 
 import androidx.lifecycle.*
 import kotlinx.coroutines.CoroutineScope

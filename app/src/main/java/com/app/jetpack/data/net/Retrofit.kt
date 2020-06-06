@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 
 private const val BASE_URL = "https://www.wanandroid.com/"
 private const val TIME_OUT = 60L
-private const val TAG = "fmt"
+private const val TAG = "huxh"
 
 val httpLoggingInterceptor = HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
     override fun log(message: String) {
