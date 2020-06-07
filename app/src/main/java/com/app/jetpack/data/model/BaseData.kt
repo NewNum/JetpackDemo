@@ -1,8 +1,7 @@
 package com.app.jetpack.data.model
 
-abstract class BaseData(){
+open class BaseData(){
     val errorCode: Int = 0
     val errorMsg: String = ""
-
 
 }

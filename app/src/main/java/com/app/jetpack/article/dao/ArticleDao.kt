@@ -6,6 +6,7 @@ import androidx.room.Query
 
 @Dao
 interface ArticleDao {
+    
     @Query("select * from article")
     suspend fun getAll(): List<Article>
 

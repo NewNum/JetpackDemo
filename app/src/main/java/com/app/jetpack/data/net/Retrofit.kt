@@ -1,8 +1,13 @@
 package com.app.jetpack.data.net
 
 import android.util.Log
+import com.app.jetpack.AppContext
 import com.app.jetpack.BuildConfig
 import com.app.jetpack.article.net.ArticleApi
+import com.app.jetpack.user.UserApi
+import com.franmontiel.persistentcookiejar.PersistentCookieJar
+import com.franmontiel.persistentcookiejar.cache.SetCookieCache
+import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -29,7 +34,9 @@ val okHttpClient = OkHttpClient.Builder()
         if (BuildConfig.DEBUG) {
             it.addInterceptor(httpLoggingInterceptor)
         }
-    }.build()
+    }
+    .cookieJar(PersistentCookieJar(SetCookieCache(),SharedPrefsCookiePersistor(AppContext)))
+    .build()
 
 val retrofit: Retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create())
@@ -39,3 +46,5 @@ val retrofit: Retrofit = Retrofit.Builder()
 
 
 object ArticleServer : ArticleApi by retrofit.create(ArticleApi::class.java)
+
+object UserServer : UserApi by retrofit.create(UserApi::class.java)

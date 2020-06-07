@@ -1,21 +1,23 @@
-package com.app.jetpack
+package com.app.jetpack.ui.main
 
-import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.app.jetpack.R
 import com.app.jetpack.base.activity.BaseActivity
+import com.app.jetpack.config.Settings
+import com.app.jetpack.ext.no
+import com.app.jetpack.ext.otherwise
+import com.app.jetpack.ext.yes
+import com.app.jetpack.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity : BaseActivity() {
 
@@ -25,16 +27,23 @@ class MainActivity : BaseActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
+        fab.setOnClickListener { view ->/*
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+                .setAction("Action", null).show()*/
+            Settings.Account.password.isEmpty().yes {
+                startActivity(LoginActivity::class.java)
+            }.otherwise {
+
+            }
         }
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_home,
+                R.id.nav_gallery,
+                R.id.nav_slideshow
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

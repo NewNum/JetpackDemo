@@ -1,6 +1,7 @@
 package com.app.jetpack.ui.home
 
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.app.jetpack.R
@@ -32,6 +33,6 @@ class HomeArticleAdapter() : PagedListAdapter<Article, RecyclerViewHolder>(DIFF_
     }
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
-        holder.tvTitle.text = getItem(position)?.title?:"加载中"
+        holder.tvTitle.text = HtmlCompat.fromHtml(getItem(position)?.title?:"加载中",HtmlCompat.FROM_HTML_MODE_COMPACT)
     }
 }

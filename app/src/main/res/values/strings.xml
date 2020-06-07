@@ -12,4 +12,9 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="home_second">Home Second</string>
+    <string name="login">登陆</string>
+    <string name="username">账号</string>
+    <string name="password">密码</string>
+    <string name="username_not_null">账号不能为空</string>
+    <string name="password_not_null">密码不能为空</string>
 </resources>
