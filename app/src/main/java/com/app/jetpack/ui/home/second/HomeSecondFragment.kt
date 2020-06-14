@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.app.jetpack.R
-import com.app.jetpack.base.fragment.BaseFragment
+import com.app.baselib.base.fragment.BaseFragment
 import com.app.jetpack.ui.gallery.GalleryViewModel
 
 class HomeSecondFragment(): Fragment() {

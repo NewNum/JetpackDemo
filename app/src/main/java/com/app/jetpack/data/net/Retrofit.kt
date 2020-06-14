@@ -1,7 +1,7 @@
 package com.app.jetpack.data.net
 
 import android.util.Log
-import com.app.jetpack.AppContext
+import com.app.baselib.AppContext
 import com.app.jetpack.BuildConfig
 import com.app.jetpack.article.net.ArticleApi
 import com.app.jetpack.user.UserApi

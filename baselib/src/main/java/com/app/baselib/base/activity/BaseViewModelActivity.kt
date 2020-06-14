@@ -1,28 +1,18 @@
-package com.app.jetpack.base.fragment
+package com.app.baselib.base.activity
 
-import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
-import com.app.jetpack.TAG
-import com.app.jetpack.base.viewmodel.BaseViewModel
-import com.app.jetpack.base.viewmodel.ErrorState
-import com.app.jetpack.base.viewmodel.LoadState
-import com.app.jetpack.base.viewmodel.SuccessState
-import com.app.jetpack.utils.longToast
-import com.app.jetpack.utils.toast
+import com.app.baselib.base.viewmodel.BaseViewModel
+import com.app.baselib.base.viewmodel.ErrorState
+import com.app.baselib.base.viewmodel.LoadState
+import com.app.baselib.base.viewmodel.SuccessState
+import com.app.baselib.utils.longToast
 
-abstract class BaseViewModelFragment : BaseFragment() {
+abstract class BaseViewModelActivity : BaseActivity() {
 
     protected abstract val viewModel: BaseViewModel
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        initViewModelAction()
-    }
-
-
-    private fun initViewModelAction() {
+    protected fun initViewModelAction() {
         viewModel.let { baseViewModel ->
             baseViewModel.mStateLiveData.observe(this, Observer { stateActionState ->
                 when (stateActionState) {
@@ -31,7 +21,7 @@ abstract class BaseViewModelFragment : BaseFragment() {
                     is ErrorState -> {
                         dismissLoading()
                         stateActionState.message?.apply {
-                            Log.d(TAG, "initViewModelAction: $this")
+                            Log.d(com.app.baselib.TAG, "initViewModelAction: $this")
                             longToast(this)
                             handleError()
                         }
@@ -41,6 +31,14 @@ abstract class BaseViewModelFragment : BaseFragment() {
         }
     }
 
+    override fun setContentLayout() {
+        setContentView(layoutId())
+        initViewModelAction()
+        onViewCreate()
+        initData()
+    }
+
     open fun handleError() {}
+
 
 }

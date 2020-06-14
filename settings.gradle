@@ -1,2 +1,3 @@
+include ':baselib'
 include ':app', ':LaunchStarter'
 rootProject.name = "JetpackMvvmDemo"

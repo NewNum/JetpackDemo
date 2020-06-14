@@ -9,7 +9,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.appcompat.widget.Toolbar
 import com.app.jetpack.R
-import com.app.jetpack.base.activity.BaseActivity
+import com.app.baselib.base.activity.BaseActivity
 import com.app.jetpack.config.Settings
 import com.app.jetpack.ext.no
 import com.app.jetpack.ext.otherwise

@@ -1,4 +1,4 @@
-package com.app.jetpack.base.viewmodel
+package com.app.baselib.base.viewmodel
 
 import androidx.lifecycle.*
 import kotlinx.coroutines.CoroutineScope

@@ -1,7 +1,7 @@
 package com.app.jetpack.data.dao
 
 import androidx.room.Room
-import com.app.jetpack.AppContext
+import com.app.baselib.AppContext
 
 private const val DB_NAME = "open_github_db"
 

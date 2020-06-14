@@ -1,19 +1,28 @@
-package com.app.jetpack.base.activity
+package com.app.baselib.base.fragment
 
+import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
-import com.app.jetpack.base.viewmodel.BaseViewModel
-import com.app.jetpack.base.viewmodel.ErrorState
-import com.app.jetpack.base.viewmodel.LoadState
-import com.app.jetpack.base.viewmodel.SuccessState
-import com.app.jetpack.utils.longToast
-import com.app.jetpack.utils.toast
+import com.app.baselib.TAG
+import com.app.baselib.base.viewmodel.BaseViewModel
+import com.app.baselib.base.viewmodel.ErrorState
+import com.app.baselib.base.viewmodel.LoadState
+import com.app.baselib.base.viewmodel.SuccessState
+import com.app.baselib.utils.longToast
+import com.app.baselib.utils.toast
 
-abstract class BaseViewModelActivity : BaseActivity() {
+abstract class BaseViewModelFragment : BaseFragment() {
 
     protected abstract val viewModel: BaseViewModel
 
-    protected fun initViewModelAction() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        initViewModelAction()
+    }
+
+
+    private fun initViewModelAction() {
         viewModel.let { baseViewModel ->
             baseViewModel.mStateLiveData.observe(this, Observer { stateActionState ->
                 when (stateActionState) {
@@ -22,7 +31,7 @@ abstract class BaseViewModelActivity : BaseActivity() {
                     is ErrorState -> {
                         dismissLoading()
                         stateActionState.message?.apply {
-                            Log.d(com.app.jetpack.TAG, "initViewModelAction: $this")
+                            Log.d(TAG, "initViewModelAction: $this")
                             longToast(this)
                             handleError()
                         }
@@ -32,14 +41,6 @@ abstract class BaseViewModelActivity : BaseActivity() {
         }
     }
 
-    override fun setContentLayout() {
-        setContentView(layoutId())
-        initViewModelAction()
-        onViewCreate()
-        initData()
-    }
-
     open fun handleError() {}
-
 
 }

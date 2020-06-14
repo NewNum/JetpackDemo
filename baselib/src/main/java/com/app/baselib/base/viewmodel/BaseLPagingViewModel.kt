@@ -1,4 +1,4 @@
-package com.app.jetpack.base.viewmodel
+package com.app.baselib.base.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,7 +7,7 @@ import androidx.paging.DataSource
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PageKeyedDataSource
 import androidx.paging.PagedList
-import com.app.jetpack.config.Configs
+import com.app.baselib.config.Configs
 import kotlinx.coroutines.launch
 
 

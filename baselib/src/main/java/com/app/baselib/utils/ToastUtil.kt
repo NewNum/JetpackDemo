@@ -1,8 +1,8 @@
-package com.app.jetpack.utils
+package com.app.baselib.utils
 
 import android.widget.Toast
 import androidx.annotation.StringRes
-import com.app.jetpack.AppContext
+import com.app.baselib.AppContext
 
 fun toast(msg: String) {
     shortToast(msg)

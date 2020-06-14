@@ -1,4 +1,4 @@
-package com.app.jetpack.base.fragment
+package com.app.baselib.base.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 
-abstract class BaseDataBindingFragment<DB : ViewDataBinding> : BaseFragment() {
+abstract class BaseDataBindingViewModelFragment<DB : ViewDataBinding> : BaseViewModelFragment() {
 
     lateinit var db: DB
 
@@ -17,7 +17,17 @@ abstract class BaseDataBindingFragment<DB : ViewDataBinding> : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         if (!::db.isInitialized) {
-            db = DataBindingUtil.inflate<DB>(inflater, layoutId(), container, false)
+            val view = createView(inflater, container, savedInstanceState)
+            if (view != null) {
+                db = DataBindingUtil.bind<DB>(view) ?: DataBindingUtil.inflate<DB>(
+                    inflater,
+                    layoutId(),
+                    container,
+                    false
+                )
+            } else {
+                db = DataBindingUtil.inflate<DB>(inflater, layoutId(), container, false)
+            }
             // 让xml内绑定的LiveData和Observer建立连接，让LiveData能感知Activity的生命周期
             db.lifecycleOwner = this
         }

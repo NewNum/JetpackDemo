@@ -1,4 +1,4 @@
-package com.app.jetpack.utils
+package com.app.baselib.utils
 
 import android.content.Context
 import android.graphics.Bitmap

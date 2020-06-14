@@ -4,9 +4,9 @@ import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
+import com.app.baselib.utils.RecyclerViewHolder
 import com.app.jetpack.R
 import com.app.jetpack.article.dao.Article
-import com.app.jetpack.utils.RecyclerViewHolder
 import kotlinx.android.synthetic.main.recycler_item_home_article.*
 
 class HomeArticleAdapter() : PagedListAdapter<Article, RecyclerViewHolder>(DIFF_ARTICLE) {

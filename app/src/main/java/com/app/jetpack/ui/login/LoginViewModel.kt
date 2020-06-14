@@ -2,7 +2,7 @@ package com.app.jetpack.ui.login
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
-import com.app.jetpack.base.viewmodel.BaseViewModel
+import com.app.baselib.base.viewmodel.BaseViewModel
 import com.app.jetpack.data.model.BaseData
 import com.app.jetpack.data.net.UserServer
 

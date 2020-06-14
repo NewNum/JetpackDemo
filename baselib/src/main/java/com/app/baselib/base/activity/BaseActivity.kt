@@ -1,4 +1,4 @@
-package com.app.jetpack.base.activity
+package com.app.baselib.base.activity
 
 import android.content.ComponentName
 import android.content.Context

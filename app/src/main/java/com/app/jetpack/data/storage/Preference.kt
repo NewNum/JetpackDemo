@@ -2,7 +2,7 @@ package com.app.jetpack.data.storage
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.app.jetpack.AppContext
+import com.app.baselib.AppContext
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 

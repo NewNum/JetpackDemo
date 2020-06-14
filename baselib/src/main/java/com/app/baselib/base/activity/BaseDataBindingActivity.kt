@@ -1,4 +1,4 @@
-package com.app.jetpack.base.activity
+package com.app.baselib.base.activity
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
