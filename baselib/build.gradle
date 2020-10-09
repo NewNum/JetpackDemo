@@ -48,4 +48,6 @@ dependencies {
     api 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     //paging
     api "androidx.paging:paging-runtime-ktx:2.1.2"
+    // 基础依赖包，必须要依赖
+    api 'com.gyf.immersionbar:immersionbar:3.0.0'
 }
