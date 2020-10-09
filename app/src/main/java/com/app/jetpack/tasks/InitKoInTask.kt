@@ -1,16 +1,6 @@
 package com.app.jetpack.tasks
 
-import com.fmt.launch.starter.task.Task
-import com.app.jetpack.article.ArticleRepository
-import com.app.jetpack.article.net.ArticleApi
-import com.app.jetpack.data.dao.articleDao
-import com.app.jetpack.data.net.ArticleServer
-import com.app.jetpack.ui.home.HomeArticleViewModel
-import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.core.context.startKoin
-import org.koin.dsl.module
 /*
-
 class InitKoInTask : Task() {
     override fun run() {
         startKoin {

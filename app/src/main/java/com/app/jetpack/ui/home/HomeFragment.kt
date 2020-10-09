@@ -6,10 +6,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.jetpack.R
-import com.app.jetpack.article.ArticleRepository
 import com.app.baselib.base.fragment.BaseDataBindingViewModelFragment
 import com.app.jetpack.databinding.FragmentHomeBinding
-import org.koin.android.ext.android.inject
 
 class HomeFragment : BaseDataBindingViewModelFragment<FragmentHomeBinding>() {
 

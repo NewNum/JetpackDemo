@@ -1,11 +1,6 @@
 package com.app.jetpack.article.dao
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity
 data class Article(
-    @PrimaryKey(autoGenerate = true) val aId: Long,
     val id: Int,
     val title: String,
     val link: String

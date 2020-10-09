@@ -10,7 +10,6 @@ import com.app.jetpack.config.Settings
 import com.app.jetpack.databinding.ActivityLoginBinding
 import com.app.jetpack.ext.otherwise
 import com.app.jetpack.ext.yes
-import com.app.baselib.utils.toast
 import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*
 
