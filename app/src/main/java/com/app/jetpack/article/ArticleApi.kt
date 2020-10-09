@@ -1,4 +1,4 @@
-package com.app.jetpack.article.net
+package com.app.jetpack.article
 
 import com.app.jetpack.ui.home.HomeArticle
 import retrofit2.http.GET

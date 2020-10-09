@@ -1,13 +1,12 @@
 package com.app.jetpack.ui.home
 
-import com.app.jetpack.article.dao.Article
-import com.app.jetpack.article.net.ArticleApi
+import com.app.jetpack.article.Article
 import com.app.baselib.base.viewmodel.BaseLPagingViewModel
 import com.app.jetpack.data.net.ArticleServer
 
-class HomeArticleViewModel() : BaseLPagingViewModel<Article>() {
+class HomeArticleViewModel : BaseLPagingViewModel<Article>() {
 
-    private val articleApi: ArticleApi by lazy {
+    private val articleApi by lazy {
         ArticleServer
     }
 

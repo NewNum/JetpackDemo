@@ -1,4 +1,4 @@
-package com.app.jetpack.article.dao
+package com.app.jetpack.article
 
 data class Article(
     val id: Int,

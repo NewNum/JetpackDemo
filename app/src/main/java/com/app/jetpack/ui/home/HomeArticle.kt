@@ -1,6 +1,6 @@
 package com.app.jetpack.ui.home
 
-import com.app.jetpack.article.dao.Article
+import com.app.jetpack.article.Article
 import com.app.jetpack.data.model.BaseData
 
 data class HomeArticle(val data: Data) : BaseData()
