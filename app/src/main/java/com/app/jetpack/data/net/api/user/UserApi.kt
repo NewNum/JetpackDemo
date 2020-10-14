@@ -1,6 +1,5 @@
-package com.app.jetpack.user
+package com.app.jetpack.data.net.api.user
 
-import androidx.lifecycle.LiveData
 import com.app.jetpack.data.model.BaseData
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded

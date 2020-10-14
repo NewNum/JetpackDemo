@@ -6,7 +6,7 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.app.baselib.utils.RecyclerViewHolder
 import com.app.jetpack.R
-import com.app.jetpack.article.Article
+import com.app.jetpack.data.net.api.article.Article
 import kotlinx.android.synthetic.main.recycler_item_home_article.*
 
 class HomeArticleAdapter() : PagedListAdapter<Article, RecyclerViewHolder>(DIFF_ARTICLE) {

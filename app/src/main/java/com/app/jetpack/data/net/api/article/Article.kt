@@ -1,4 +1,4 @@
-package com.app.jetpack.article
+package com.app.jetpack.data.net.api.article
 
 data class Article(
     val id: Int,

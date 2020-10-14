@@ -1,6 +1,6 @@
 package com.app.jetpack.ui.home
 
-import com.app.jetpack.article.Article
+import com.app.jetpack.data.net.api.article.Article
 import com.app.baselib.base.viewmodel.BaseLPagingViewModel
 import com.app.jetpack.data.net.ArticleServer
 

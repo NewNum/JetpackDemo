@@ -3,8 +3,8 @@ package com.app.jetpack.data.net
 import android.util.Log
 import com.app.baselib.AppContext
 import com.app.jetpack.BuildConfig
-import com.app.jetpack.article.ArticleApi
-import com.app.jetpack.user.UserApi
+import com.app.jetpack.data.net.api.article.ArticleApi
+import com.app.jetpack.data.net.api.user.UserApi
 import com.franmontiel.persistentcookiejar.PersistentCookieJar
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
