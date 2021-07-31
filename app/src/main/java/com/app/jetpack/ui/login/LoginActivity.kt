@@ -10,15 +10,14 @@ import com.app.jetpack.config.Settings
 import com.app.jetpack.databinding.ActivityLoginBinding
 import com.app.jetpack.ext.otherwise
 import com.app.jetpack.ext.yes
-import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*
 
 class LoginActivity : BaseDataBindingViewModelActivity<ActivityLoginBinding>() {
 
     override fun onViewCreate() {
         db.loginViewModel = viewModel
-        setSupportActionBar(tbLogin)
-        btnLogin.setOnClickListener {
+        setSupportActionBar(db.tbLogin)
+        db.btnLogin.setOnClickListener {
             login()
         }
         val userName = Settings.Account.userName
@@ -27,7 +26,7 @@ class LoginActivity : BaseDataBindingViewModelActivity<ActivityLoginBinding>() {
         }
         val callback = object : Observable.OnPropertyChangedCallback() {
             override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
-                tvWarning.text = ""
+                db.tvWarning.text = ""
             }
         }
         viewModel.username.addOnPropertyChangedCallback(callback)
@@ -38,28 +37,28 @@ class LoginActivity : BaseDataBindingViewModelActivity<ActivityLoginBinding>() {
         val username = viewModel.username.get().toString()
         val password = viewModel.password.get().toString()
         username.isEmpty().yes {
-            tilUserName.error = getString(R.string.username_not_null)
-            tilUserName.isErrorEnabled = true
+            db.tilUserName.error = getString(R.string.username_not_null)
+            db.tilUserName.isErrorEnabled = true
         }.otherwise {
-            tilUserName.isErrorEnabled = false
+            db.tilUserName.isErrorEnabled = false
             password.isEmpty().yes {
-                tilPassword.error = getString(R.string.password_not_null)
-                tilPassword.isErrorEnabled = true
+                db.tilPassword.error = getString(R.string.password_not_null)
+                db.tilPassword.isErrorEnabled = true
             }.otherwise {
-                tilPassword.isErrorEnabled = false
+                db.tilPassword.isErrorEnabled = false
                 toLogin()
             }
         }
     }
 
     override fun showLoading() {
-        btnLogin.visibility = View.GONE
-        pbLogin.visibility = View.VISIBLE
+        db.btnLogin.visibility = View.GONE
+        db.pbLogin.visibility = View.VISIBLE
     }
 
     override fun dismissLoading() {
-        btnLogin.visibility = View.VISIBLE
-        pbLogin.visibility = View.GONE
+        db.btnLogin.visibility = View.VISIBLE
+        db.pbLogin.visibility = View.GONE
     }
 
     private fun toLogin() {

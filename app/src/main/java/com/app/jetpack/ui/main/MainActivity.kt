@@ -1,11 +1,14 @@
 package com.app.jetpack.ui.main
 
-import com.app.jetpack.R
+import android.view.LayoutInflater
 import com.app.baselib.base.activity.BaseActivity
+import com.app.jetpack.R
+import com.app.baselib.base.activity.BaseViewBindingActivity
+import com.app.jetpack.databinding.ActivityMainBinding
 import com.app.jetpack.ui.gallery.GalleryFragment
 import com.app.jetpack.ui.home.HomeFragment
 import com.app.jetpack.ui.slideshow.SlideshowFragment
-import kotlinx.android.synthetic.main.activity_main.*
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : BaseActivity() {
     private val fragments by lazy {
@@ -17,6 +20,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onViewCreate() {
+
         supportFragmentManager.beginTransaction()
             .add(R.id.fl_container,fragments[2])
             .hide(fragments[2])
@@ -24,7 +28,7 @@ class MainActivity : BaseActivity() {
             .hide(fragments[1])
             .add(R.id.fl_container,fragments[0])
             .commitNow()
-        main_bottom_nav?.setOnNavigationItemSelectedListener {
+        findViewById<BottomNavigationView>(R.id.main_bottom_nav)?.setOnNavigationItemSelectedListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fl_container,
                     fragments[

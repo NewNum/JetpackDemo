@@ -4,12 +4,14 @@ import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
+import com.app.baselib.utils.RecyclerViewBindingHolder
 import com.app.baselib.utils.RecyclerViewHolder
+import com.app.baselib.utils.getViewHolder
 import com.app.jetpack.R
 import com.app.jetpack.data.net.api.article.Article
-import kotlinx.android.synthetic.main.recycler_item_home_article.*
+import com.app.jetpack.databinding.RecyclerItemHomeArticleBinding
 
-class HomeArticleAdapter() : PagedListAdapter<Article, RecyclerViewHolder>(DIFF_ARTICLE) {
+class HomeArticleAdapter() : PagedListAdapter<Article, RecyclerViewBindingHolder<RecyclerItemHomeArticleBinding>>(DIFF_ARTICLE) {
 
     companion object {
         //  比较的行为
@@ -28,11 +30,11 @@ class HomeArticleAdapter() : PagedListAdapter<Article, RecyclerViewHolder>(DIFF_
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
-        return RecyclerViewHolder.Companion.createViewHolder(parent, R.layout.recycler_item_home_article)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewBindingHolder<RecyclerItemHomeArticleBinding> {
+        return parent.getViewHolder(RecyclerItemHomeArticleBinding::inflate)
     }
 
-    override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
-        holder.tvTitle.text = HtmlCompat.fromHtml(getItem(position)?.title?:"加载中",HtmlCompat.FROM_HTML_MODE_COMPACT)
+    override fun onBindViewHolder(holder: RecyclerViewBindingHolder<RecyclerItemHomeArticleBinding>, position: Int) {
+        holder.viewBinding.tvTitle.text = HtmlCompat.fromHtml(getItem(position)?.title?:"加载中",HtmlCompat.FROM_HTML_MODE_COMPACT)
     }
 }
